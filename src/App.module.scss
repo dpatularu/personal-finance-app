@@ -1,4 +1,23 @@
+@use "./styles/base";
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/src/assets/fonts/PublicSans-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/src/assets/fonts/PublicSans-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 * {
+  font-family: "Public Sans";
   box-sizing: border-box;
 }
 
@@ -9,6 +28,7 @@ body {
 .appContainer {
   display: flex;
   height: 100vh;
+  flex-basis: 20rem;
 }
 
 .outletContainer {
