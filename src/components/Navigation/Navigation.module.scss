@@ -1,0 +1,30 @@
+@use "../../styles/base";
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: base.$grey900;
+  padding: base.$spacing-500;
+  border-top-right-radius: base.$spacing-200;
+  border-bottom-right-radius: base.$spacing-200;
+
+  .sidebarContentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: base.$spacing-300;
+  }
+
+  #sidebarLogo {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: base.$spacing-300;
+  }
+}

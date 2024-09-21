@@ -1,0 +1,18 @@
+@use "../../styles/base";
+
+.sidebarBtn {
+  @include base.removeDefaultAnchorStyles;
+  display: flex;
+  gap: base.$spacing-250;
+  color: base.$grey300;
+  cursor: pointer;
+
+  &:hover {
+    color: base.$grey100;
+  }
+
+  .sidebarBtnIcon > svg {
+    height: 100%;
+    width: 100%;
+  }
+}

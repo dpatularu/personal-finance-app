@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.appContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.outletContainer {
+  flex-basis: 100%;
+}
