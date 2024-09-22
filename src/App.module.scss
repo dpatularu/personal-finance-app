@@ -16,21 +16,59 @@
   font-style: italic;
   font-display: swap;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   font-family: "Public Sans";
-  box-sizing: border-box;
+
+  font-size: 16px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: auto;
+}
+
 .appContainer {
   display: flex;
   height: 100vh;
-  flex-basis: 20rem;
+
+  @media (max-width: base.$tabletWidth) {
+    flex-direction: column;
+  }
 }
 
 .outletContainer {
   flex-basis: 100%;
+  padding: base.$spacing-400 base.$spacing-500;
+  margin-left: base.$collapsedSidebarWidth;
+  // transition: margin-left 0.2s ease-in-out;
+  @media (max-width: base.$tabletWidth) {
+    margin-left: 0;
+  }
+
+  @media (max-width: base.$mobileWidth) {
+    padding: base.$spacing-300 base.$spacing-200;
+  }
+
+  &.expanded {
+    margin-left: base.$expandedSidebarWidth;
+    @media (max-width: base.$tabletWidth) {
+      margin-left: 0;
+    }
+  }
 }

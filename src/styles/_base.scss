@@ -40,6 +40,12 @@ $armyGreen: #7f9161;
 $gold: #cab361;
 $orange: #be6c49;
 
+$text-extra-lg: 2rem;
+$text-lg: 1.25rem;
+$text-md: 1rem;
+$text-sm: 0.875rem;
+$text-extra-sm: 0.75rem;
+
 $spacing-50: 0.25rem;
 $spacing-100: 0.5rem;
 $spacing-150: 0.75rem;
@@ -49,8 +55,49 @@ $spacing-300: 1.5rem;
 $spacing-400: 2rem;
 $spacing-500: 2.5rem;
 
-@mixin removeDefaultAnchorStyles() {
-  text-decoration: none;
-  color: inherit;
-  cursor: auto;
+$collapsedSidebarWidth: 5rem;
+$expandedSidebarWidth: 20rem;
+
+$tabletWidth: 869px;
+$mobileWidth: 480px;
+
+@mixin text-preset-1($bold) {
+  font-size: $text-extra-sm;
+
+  line-height: 1.2;
+  @if $bold {
+    font-weight: 600;
+  }
+}
+
+@mixin text-preset-2($bold) {
+  font-size: $text-sm;
+  line-height: 1.2;
+  @if $bold {
+    font-weight: 600;
+  }
+}
+
+@mixin text-preset-3($bold) {
+  font-size: $text-md;
+  line-height: 1.5;
+  @if $bold {
+    font-weight: 600;
+  }
+}
+
+@mixin text-preset-4($bold) {
+  font-size: $text-lg;
+  line-height: 1.5;
+  @if $bold {
+    font-weight: 600;
+  }
+}
+
+@mixin text-preset-5($bold) {
+  font-size: $text-extra-lg;
+  line-height: 1.5;
+  @if $bold {
+    font-weight: 600;
+  }
 }

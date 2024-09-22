@@ -1,33 +1,76 @@
 @use "../../styles/base";
 
 #sidebar {
-  flex-basis: 15rem;
+  width: base.$collapsedSidebarWidth;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: base.$grey900;
-  padding: base.$spacing-500 base.$spacing-300 base.$spacing-500 0;
-  border-top-right-radius: base.$spacing-200;
-  border-bottom-right-radius: base.$spacing-200;
+  padding: 3rem 1rem 3rem 0;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
+  position: fixed;
+  inset: 0 auto 0 0;
+  // transition: width 0.2s ease-in-out;
+
+  @media (max-width: base.$tabletWidth) {
+    width: 100%;
+    padding: base.$spacing-100 base.$spacing-500 0 base.$spacing-500;
+    position: initial;
+    flex-direction: row;
+    inset: 0 0 0 0;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+  }
+
+  @media (max-width: base.$mobileWidth) {
+    padding: base.$spacing-100 base.$spacing-200 0 base.$spacing-200;
+  }
+
+  &.expanded {
+    @media (max-width: base.$tabletWidth) {
+      width: 100%;
+    }
+    & {
+      width: base.$expandedSidebarWidth;
+    }
+  }
 
   .sidebarContentContainer {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: base.$spacing-500;
   }
 
-  #sidebarLogo {
-    width: base.$spacing-100;
-    height: base.$spacing-100;
+  .sidebarLogo {
+    display: flex;
+    align-items: center;
+    color: base.$white;
+    margin-left: 1.25rem;
     img {
       height: 100%;
       width: 100%;
+    }
+    @media (max-width: base.$tabletWidth) {
+      display: none;
     }
   }
 
   nav {
     display: flex;
     flex-direction: column;
-    gap: base.$spacing-100;
+    gap: 0.5rem;
+    @media (max-width: base.$tabletWidth) {
+      gap: 0rem;
+      a {
+        flex-basis: 100%;
+      }
+      & {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
   }
 }

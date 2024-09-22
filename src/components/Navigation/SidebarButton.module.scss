@@ -1,18 +1,93 @@
 @use "../../styles/base";
 
 .sidebarBtn {
-  @include base.removeDefaultAnchorStyles;
+  @include base.text-preset-3(bold);
   display: flex;
-  gap: base.$spacing-250;
-  color: base.$grey300;
+  align-items: center;
+  gap: 1rem;
   cursor: pointer;
+  width: 100%;
+  color: base.$grey300;
+  border-left: 0.25rem solid transparent;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  padding: 1rem 1rem;
+  user-select: none;
 
-  &:hover {
-    color: base.$grey100;
+  @media (max-width: base.$tabletWidth) {
+    border-left: 0px;
+    border-bottom: 0.25rem solid transparent;
+    flex-direction: column;
+    // justify-content: space-around;
+    gap: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0rem;
+    padding: base.$spacing-100 base.$spacing-150;
   }
 
-  .sidebarBtnIcon > svg {
-    height: 100%;
-    width: 100%;
+  p {
+    margin: 0;
+    opacity: 0;
+    text-wrap: nowrap;
+
+    @media (max-width: base.$tabletWidth) {
+      opacity: 1;
+    }
+    @media (max-width: base.$mobileWidth) {
+      display: none;
+    }
+    &.expanded {
+      opacity: 1;
+    }
+  }
+
+  &.active {
+    background-color: base.$biege100;
+    color: base.$grey900;
+    border-color: base.$green;
+    > .sidebarBtnIcon > svg {
+      color: base.$green;
+    }
+  }
+  &:hover {
+    &.active {
+      color: base.$grey900;
+    }
+    & {
+      color: base.$grey100;
+    }
+  }
+}
+
+.sidebarBtnIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.sidebarMinimizeBtn {
+  .sidebarBtnIcon {
+    p {
+      &.expanded {
+        opacity: 1;
+      }
+    }
+    & svg {
+      rotate: 180deg;
+      transition: rotate 0.2s;
+    }
+    &.expanded {
+      & svg {
+        rotate: 0deg;
+      }
+    }
+  }
+  @media (max-width: base.$tabletWidth) {
+    display: none;
   }
 }
